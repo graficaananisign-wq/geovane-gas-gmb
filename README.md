@@ -43,17 +43,11 @@ npm run generate
 ### 2. Gerar imagens com IA (Pollinations.ai)
 
 ```bash
-# Criar API key gratuita em: https://enter.pollinations.ai/keys
-# Adicionar ao .env: POLLINATIONS_API_KEY=sua_key
-
 # Gerar todas as 15 imagens
 npm run images
 
 # Gerar intervalo específico (ex: posts 3 a 7)
 node generate-images-pollinations.js 3 7
-
-# Usar modelo diferente (flux, zimage, klein)
-POLLINATIONS_MODEL=zimage npm run images
 ```
 
 ### 3. Renderizar imagens PNG

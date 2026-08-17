@@ -108,48 +108,68 @@ const POST_PROMPTS = [
 /**
  * Faz download de uma imagem via URL
  */
-function downloadImage(url, destPath) {
+function downloadImage(url, destPath, apiKey) {
   return new Promise((resolve, reject) => {
     const protocol = url.startsWith('https') ? https : http;
     
-    const request = protocol.get(url, { timeout: 60000 }, (response) => {
-      // Seguir redirects
-      if (response.statusCode >= 300 && response.statusCode < 400 && response.headers.location) {
-        downloadImage(response.headers.location, destPath)
-          .then(resolve)
-          .catch(reject);
-        return;
-      }
-      
-      if (response.statusCode !== 200) {
-        reject(new Error(`HTTP ${response.statusCode} ao baixar imagem`));
-        return;
-      }
-      
-      const fileStream = fs.createWriteStream(destPath);
-      response.pipe(fileStream);
-      
-      fileStream.on('finish', () => {
-        fileStream.close();
-        resolve(destPath);
-      });
-      
-      fileStream.on('error', (err) => {
-        fs.unlink(destPath, () => {});
-        reject(err);
-      });
-    });
+    const headers = {};
+    if (apiKey) {
+      headers['Authorization'] = `Bearer ${apiKey}`;
+    }
     
-    request.on('error', reject);
-    request.on('timeout', () => {
-      request.destroy();
-      reject(new Error('Timeout ao baixar imagem'));
-    });
+    function doRequest(reqUrl) {
+      const parsedUrl = new URL(reqUrl);
+      const reqProtocol = parsedUrl.protocol === 'https:' ? https : http;
+      
+      const request = reqProtocol.get(reqUrl, { headers, timeout: 120000 }, (response) => {
+        // Seguir redirects (301, 302, 307, 308)
+        if ([301, 302, 307, 308].includes(response.statusCode) && response.headers.location) {
+          let redirectUrl = response.headers.location;
+          // Suportar URLs relativas
+          if (redirectUrl.startsWith('/')) {
+            redirectUrl = `${parsedUrl.protocol}//${parsedUrl.host}${redirectUrl}`;
+          }
+          doRequest(redirectUrl);
+          return;
+        }
+        
+        if (response.statusCode !== 200) {
+          let body = '';
+          response.on('data', chunk => body += chunk);
+          response.on('end', () => {
+            reject(new Error(`HTTP ${response.statusCode}: ${body.substring(0, 200)}`));
+          });
+          return;
+        }
+        
+        const fileStream = fs.createWriteStream(destPath);
+        response.pipe(fileStream);
+        
+        fileStream.on('finish', () => {
+          fileStream.close();
+          resolve(destPath);
+        });
+        
+        fileStream.on('error', (err) => {
+          fs.unlink(destPath, () => {});
+          reject(err);
+        });
+      });
+      
+      request.on('error', reject);
+      request.on('timeout', () => {
+        request.destroy();
+        reject(new Error('Timeout ao baixar imagem'));
+      });
+    }
+    
+    doRequest(url);
   });
 }
 
 /**
  * Gera URL da imagem via Pollinations.ai
+ * Usa endpoint legado (sem key) quando API key não tem créditos
  */
 function buildImageUrl(prompt, options = {}) {
   const model = options.model || MODEL;
@@ -158,13 +178,9 @@ function buildImageUrl(prompt, options = {}) {
   const seed = options.seed || Math.floor(Math.random() * 10000);
   
   const encodedPrompt = encodeURIComponent(prompt);
-  let url = `https://gen.pollinations.ai/image/${encodedPrompt}?model=${model}&width=${width}&height=${height}&seed=${seed}`;
   
-  if (API_KEY) {
-    url += `&key=${API_KEY}`;
-  }
-  
-  return url;
+  // Endpoint legado funciona sem API key
+  return `https://image.pollinations.ai/prompt/${encodedPrompt}?model=${model}&width=${width}&height=${height}&seed=${seed}&nologo=true`;
 }
 
 /**
@@ -244,7 +260,7 @@ async function main() {
       console.log(`🎨 Post ${post.id}/15: ${post.filename}`);
       console.log(`   Prompt: ${post.prompt.substring(0, 60)}...`);
       
-      await downloadImage(url, destPath);
+      await downloadImage(url, destPath, API_KEY);
       
       const stats = fs.statSync(destPath);
       console.log(`   ✅ Salvo (${(stats.size / 1024).toFixed(0)}KB)`);
