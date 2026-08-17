@@ -5,6 +5,7 @@ Sistema de automação de postagens no Google Business Profile para a **Geovane 
 ## Funcionalidades
 
 - **15 templates de post** com textos otimizados e imagens PNG profissionais
+- **Geração de imagens com IA** via Pollinations.ai (gratuito)
 - **Postagem automática** no GMB via Playwright (browser automation)
 - **Agendamento** com data e hora específicas
 - **CTAs integrados** (Saiba mais, Comprar, Falar no WhatsApp, etc.)
@@ -39,13 +40,29 @@ npx playwright install chromium
 npm run generate
 ```
 
-### 2. Renderizar imagens PNG
+### 2. Gerar imagens com IA (Pollinations.ai)
+
+```bash
+# Criar API key gratuita em: https://enter.pollinations.ai/keys
+# Adicionar ao .env: POLLINATIONS_API_KEY=sua_key
+
+# Gerar todas as 15 imagens
+npm run images
+
+# Gerar intervalo específico (ex: posts 3 a 7)
+node generate-images-pollinations.js 3 7
+
+# Usar modelo diferente (flux, zimage, klein)
+POLLINATIONS_MODEL=zimage npm run images
+```
+
+### 3. Renderizar imagens PNG
 
 ```bash
 npm run render
 ```
 
-### 3. Postar no GMB
+### 4. Postar no GMB
 
 ```bash
 # Postar todos (1-15)
@@ -61,14 +78,16 @@ npm run post:headless
 ## Estrutura do Projeto
 
 ```
-├── generate-posts.js      # Gera HTML dos 15 posts
-├── postar-automatico.js   # Renderiza HTML → PNG
-├── postar-gmb.js          # Posta no GMB automaticamente
-├── schedule.json          # Cronograma de postagens
-├── copys-posts.txt        # Textos dos posts
-├── posting-log.json        # Log de postagens (gerado automaticamente)
-├── .env.example           # Exemplo de configuração
-└── post*.html / post*.png # Posts gerados
+├── generate-posts.js              # Gera HTML dos 15 posts
+├── generate-images-pollinations.js # Gera imagens com IA (Pollinations)
+├── postar-automatico.js           # Renderiza HTML → PNG
+├── postar-gmb.js                  # Posta no GMB automaticamente
+├── schedule.json                  # Cronograma de postagens
+├── copys-posts.txt                # Textos dos posts
+├── posting-log.json               # Log de postagens (gerado automaticamente)
+├── images-pollinations/           # Imagens geradas por IA
+├── .env.example                   # Exemplo de configuração
+└── post*.html / post*.png         # Posts gerados
 ```
 
 ## Configuração
@@ -87,13 +106,18 @@ Variáveis disponíveis:
 | `POST_START` | Post inicial | `1` |
 | `POST_END` | Post final | `15` |
 | `GMB_BUSINESS_ID` | ID do negócio | `10114823537177422096` |
+| `POLLINATIONS_API_KEY` | API key Pollinations.ai | (vazio) |
+| `POLLINATIONS_MODEL` | Modelo de imagem | `flux` |
+| `POLLINATIONS_WIDTH` | Largura da imagem | `1024` |
+| `POLLINATIONS_HEIGHT` | Altura da imagem | `1024` |
 
 ## Fluxo de Trabalho
 
-1. **Gerar** — `npm run generate` cria 15 HTMLs + `schedule.json`
-2. **Renderizar** — `npm run render` converte HTMLs em PNGs
-3. **Login** — Na primeira execução, faça login no Google na janela aberta
-4. **Postar** — O sistema navega no GMB, preenche texto, imagem, CTA e agenda
+1. **Gerar posts** — `npm run generate` cria 15 HTMLs + `schedule.json`
+2. **Gerar imagens IA** — `npm run images` cria imagens via Pollinations.ai
+3. **Renderizar** — `npm run render` converte HTMLs em PNGs (opcional se usar imagens IA)
+4. **Login** — Na primeira execução, faça login no Google na janela aberta
+5. **Postar** — O sistema navega no GMB, preenche texto, imagem, CTA e agenda
 
 ## Personalização
 
@@ -133,6 +157,8 @@ As postagens são registradas em `posting-log.json`:
 | PNG não encontrado | Execute `npm run render` antes de postar |
 | Seletor não encontrado | O GMB pode ter atualizado o layout — verifique os seletores em `postar-gmb.js` |
 | Post não agenda | Verifique se a data/hora são futuras |
+| Erro Pollinations API | Verifique se a `POLLINATIONS_API_KEY` está correta no `.env` |
+| Imagem Pollinations vazia | Tente outro modelo: `POLLINATIONS_MODEL=zimage` |
 
 ## Licença
 
