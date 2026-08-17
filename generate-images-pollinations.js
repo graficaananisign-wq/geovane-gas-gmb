@@ -29,77 +29,77 @@ const POST_PROMPTS = [
   {
     id: 1,
     filename: 'post01-gas-entrega.png',
-    prompt: 'Professional promotional image for a gas delivery service, blue flame of a gas stove burner, clean modern kitchen background, warm lighting, Brazilian style, high quality commercial photography, vibrant colors, no text'
+    prompt: 'Professional promotional image of a botijão de gás butano 13kg, blue gas cylinder delivery service, blue flame of a gas stove burner, clean modern kitchen background, warm lighting, Brazilian style, high quality commercial photography, vibrant colors, no text'
   },
   {
     id: 2,
     filename: 'post02-gas-butano.png',
-    prompt: 'Professional image of a blue gas cylinder (botijão de gás butano 13kg) in a clean kitchen setting, warm lighting, commercial product photography style, Brazilian home environment, no text'
+    prompt: 'Professional image of a botijão de gás butano 13kg, blue gas cylinder in a clean kitchen setting, warm lighting, commercial product photography style, Brazilian home environment, no text'
   },
   {
     id: 3,
     filename: 'post03-entrega-rapida.png',
-    prompt: 'Fast delivery concept, person carrying a blue gas cylinder to a residential house, sunset lighting, professional delivery service, Brazilian urban neighborhood, warm tones, no text'
+    prompt: 'Fast delivery of botijão de gás, person carrying a blue gas cylinder to a residential house, sunset lighting, professional delivery service, Brazilian urban neighborhood, warm tones, no text'
   },
   {
     id: 4,
     filename: 'post04-deposito-gas.png',
-    prompt: 'Gas distribution warehouse interior, rows of blue gas cylinders organized neatly, professional storage facility, industrial lighting, clean and organized, Brazilian business, no text'
+    prompt: 'Gas distribution warehouse with botijão de gás, rows of blue gas cylinders organized neatly, professional storage facility, industrial lighting, clean and organized, Brazilian business, no text'
   },
   {
     id: 5,
     filename: 'post05-domingo-gas.png',
-    prompt: 'Happy family cooking in a bright kitchen with gas stove flame visible, warm home atmosphere, weekend family gathering, Brazilian style kitchen, warm lighting, no text'
+    prompt: 'Happy family cooking with botijão de gás, bright kitchen with gas stove flame visible, warm home atmosphere, weekend family gathering, Brazilian style kitchen, warm lighting, no text'
   },
   {
     id: 6,
     filename: 'post06-preco-justo.png',
-    prompt: 'Value and affordability concept, happy customer receiving gas cylinder delivery, thumbs up gesture, bright sunny day, Brazilian residential area, friendly service, no text'
+    prompt: 'Value and affordability concept for botijão de gás, happy customer receiving gas cylinder delivery, thumbs up gesture, bright sunny day, Brazilian residential area, friendly service, no text'
   },
   {
     id: 7,
     filename: 'post07-whatsapp.png',
-    prompt: 'Modern smartphone showing a chat conversation, cozy kitchen background with gas stove, easy ordering concept, warm lighting, Brazilian style, no text'
+    prompt: 'Order botijão de gás via WhatsApp, modern smartphone showing a chat conversation, cozy kitchen background with gas stove, easy ordering concept, warm lighting, Brazilian style, no text'
   },
   {
     id: 8,
     filename: 'post08-gas-cozinha.png',
-    prompt: 'Beautiful modern kitchen with blue gas flame on stove, clean countertop, warm ambient lighting, Brazilian home interior design, inviting atmosphere, no text'
+    prompt: 'Beautiful modern kitchen with botijão de gás, blue gas flame on stove, clean countertop, warm ambient lighting, Brazilian home interior design, inviting atmosphere, no text'
   },
   {
     id: 9,
     filename: 'post09-avaliacao.png',
-    prompt: 'Five gold stars rating concept, customer satisfaction, professional service quality, warm background with subtle glow, premium feel, no text'
+    prompt: 'Five gold stars rating for botijão de gás delivery service, customer satisfaction, professional service quality, warm background with subtle glow, premium feel, no text'
   },
   {
     id: 10,
     filename: 'post10-seguranca.png',
-    prompt: 'Safety concept for gas delivery, professional worker with safety equipment handling gas cylinder, careful and secure, industrial safety, Brazilian style, no text'
+    prompt: 'Safety concept for botijão de gás delivery, professional worker with safety equipment handling gas cylinder, careful and secure, industrial safety, Brazilian style, no text'
   },
   {
     id: 11,
     filename: 'post11-comercio.png',
-    prompt: 'Commercial restaurant kitchen with gas stove, professional chef environment, business gas supply, Brazilian restaurant setting, warm lighting, no text'
+    prompt: 'Commercial restaurant kitchen with botijão de gás, professional chef environment, business gas supply, Brazilian restaurant setting, warm lighting, no text'
   },
   {
     id: 12,
     filename: 'post12-promocao.png',
-    prompt: 'Special offer promotional concept, gift box with blue ribbon, celebration atmosphere, bright colors, commercial advertising style, exciting deal, no text'
+    prompt: 'Special offer on botijão de gás, promotional concept with gift box and blue ribbon, celebration atmosphere, bright colors, commercial advertising style, exciting deal, no text'
   },
   {
     id: 13,
     filename: 'post13-facilidade.png',
-    prompt: 'Convenience and ease concept, person relaxing at home while delivery arrives, doorstep service, comfortable Brazilian home, stress-free, no text'
+    prompt: 'Convenience of botijão de gás delivery, person relaxing at home while delivery arrives, doorstep service, comfortable Brazilian home, stress-free, no text'
   },
   {
     id: 14,
     filename: 'post14-profissional.png',
-    prompt: 'Professional gas delivery person in uniform, confident pose, branded service vehicle, clean and trustworthy appearance, Brazilian worker, no text'
+    prompt: 'Professional botijão de gás delivery person in uniform, confident pose, branded service vehicle, clean and trustworthy appearance, Brazilian worker, no text'
   },
   {
     id: 15,
     filename: 'post15-final-semana.png',
-    prompt: 'Weekend relaxation concept, cozy kitchen with warm gas flame, peaceful home atmosphere, Saturday morning vibes, Brazilian home comfort, no text'
+    prompt: 'Weekend relaxation with botijão de gás, cozy kitchen with warm gas flame, peaceful home atmosphere, Saturday morning vibes, Brazilian home comfort, no text'
   }
 ];
 
