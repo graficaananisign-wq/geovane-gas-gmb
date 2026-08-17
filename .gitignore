@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Perfil do navegador (contém login)
+gmb-profile/
+
+# Logs de postagem
+posting-log.json
+
+# Arquivos de debug
+debug-*.png
+
+# Variáveis de ambiente (nunca committar .env real)
+.env
+
+# Sistema
+.DS_Store
+Thumbs.db

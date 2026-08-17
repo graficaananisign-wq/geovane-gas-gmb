@@ -1,0 +1,21 @@
+{
+  "name": "geovane-gas-gmb",
+  "version": "2.0.0",
+  "description": "Automação de postagens no Google Business Profile para a Geovane Gás",
+  "main": "generate-posts.js",
+  "scripts": {
+    "generate": "node generate-posts.js",
+    "render": "node postar-automatico.js",
+    "post": "node postar-gmb.js",
+    "post:range": "node postar-gmb.js",
+    "post:headless": "HEADLESS=true node postar-gmb.js",
+    "install:browsers": "npx playwright install chromium"
+  },
+  "keywords": ["gmb", "google-business", "automation", "playwright"],
+  "author": "Geovane Gás",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.61.1"
+  }
+}

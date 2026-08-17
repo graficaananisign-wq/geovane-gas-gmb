@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post 4 - Depósito de Gás</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f0f0; }
+    .post { width: 1200px; height: 900px; background: linear-gradient(135deg, #1a1a2e 0%, #e94560 100%); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; }
+    .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); }
+    .pattern { position: absolute; inset: 0; opacity: 0.05; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.1) 40px, rgba(255,255,255,0.1) 80px); }
+    .content { position: relative; z-index: 1; text-align: center; color: white; max-width: 1000px; }
+    h1 { font-size: 76px; font-weight: 900; margin-bottom: 20px; line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+    h1 .small { font-size: 40px; display: block; font-weight: 400; margin-top: 10px; }
+    p { font-size: 22px; margin-bottom: 35px; line-height: 1.5; opacity: 0.9; }
+    .buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: white; padding: 18px 40px; border-radius: 50px; font-size: 20px; font-weight: bold; text-decoration: none; }
+    .btn-phone { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.2); color: white; padding: 18px 40px; border-radius: 50px; font-size: 20px; font-weight: bold; text-decoration: none; backdrop-filter: blur(10px); }
+    .footer { position: absolute; bottom: 30px; left: 40px; right: 40px; text-align: center; z-index: 1; }
+    .footer p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.8; }
+    .footer strong { color: rgba(255,255,255,0.8); }
+    .footer .seo { color: rgba(255,255,255,0.4); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <div class="overlay"></div>
+    <div class="pattern"></div>
+    <div class="content">
+      <h1>DEPÓSITO DE GÁS<br><span class="small">Geovane Gás - Confiança e Qualidade</span></h1>
+      <p>Botijão de gás de cozinha, gás butano e muito mais.<br>Entrega rápida no Distrito Industrial, Ananindeua e Marituba.</p>
+      <div class="buttons">
+        <a class="btn-whatsapp" href="https://geovanegasdistritoindustrial.netlify.app/" target="_blank">SAIBA MAIS</a>
+        <a class="btn-phone" href="https://wa.me/5591984656716" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        <strong>Geovane Gás</strong> - R. Segunda Rural, 179 - Distrito Industrial, Ananindeua-PA<br>
+        <span class="seo">SEO: depósito de gás Ananindeua | botijão de gás | gás de cozinha | gás butano | distribuidora de gás Paragás | entrega de gás 20min</span>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
