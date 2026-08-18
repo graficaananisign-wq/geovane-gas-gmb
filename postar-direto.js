@@ -171,8 +171,8 @@ async function postSingle(page, index) {
         'SAIBA MAIS': 'LEARN_MORE',
         'COMPRAR AGORA': 'SHOP',
         'PEÇA JÁ': 'ORDER',
-        'FALAR NO WHATSAPP': 'CONTACT',
-        'VER OFERTAS': 'GET_OFFER'
+        'FALAR NO WHATSAPP': 'CALL',
+        'VER OFERTAS': 'LEARN_MORE'
       };
       
       const ctaValue = ctaMap[s.cta];
