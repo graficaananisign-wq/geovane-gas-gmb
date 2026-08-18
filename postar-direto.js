@@ -153,25 +153,90 @@ async function postSingle(page, index) {
 
   // REGRA OBRIGATÓRIA: Ativar botão CTA
   log('  → Ativando botão CTA...');
+  
+  // Step 1: Click the "Botão" button to expand CTA section
   const addBtn = page.locator('button[aria-label="Adicionar campos de link"], button:has-text("Botão")').first();
   if (await addBtn.count() > 0) {
     await addBtn.click();
     await sleep(1500);
     
-    // Select CTA type
-    const ctaOption = page.locator(`text=${cta.label}`).first();
-    if (await ctaOption.count() > 0) {
-      await ctaOption.click();
-      await sleep(500);
-      log(`  ✓ CTA selecionado: ${cta.label}`);
+    // Step 2: Click the dropdown that shows "Nenhum" to open CTA options
+    const dropdownBtn = page.locator('button:has-text("Nenhum"), button[aria-haspopup="true"]').first();
+    if (await dropdownBtn.count() > 0) {
+      await dropdownBtn.click();
+      await sleep(1000);
+      
+      // Step 3: Select the CTA type from the menu by clicking the li[role="menuitem"] directly
+      const ctaMap = {
+        'SAIBA MAIS': 'LEARN_MORE',
+        'COMPRAR AGORA': 'SHOP',
+        'PEÇA JÁ': 'ORDER',
+        'FALAR NO WHATSAPP': 'CONTACT',
+        'VER OFERTAS': 'GET_OFFER'
+      };
+      
+      const ctaValue = ctaMap[s.cta];
+      const menuItem = page.locator(`li[role="menuitem"][value="${ctaValue}"]`).first();
+      if (await menuItem.count() > 0) {
+        await menuItem.click({ force: true });
+        await sleep(1000);
+        log(`  ✓ CTA selecionado: ${s.cta} (${ctaValue})`);
+      } else {
+        log(`  ⚠ Menu item não encontrado: ${ctaValue}`);
+      }
+    } else {
+      log('  ⚠ Dropdown CTA não encontrado');
     }
     
-    // Fill URL
-    const urlInput = page.locator('input[type="url"], input[placeholder*="link"]').first();
-    if (await urlInput.count() > 0) {
-      await urlInput.fill(cta.url);
-      log(`  ✓ URL CTA: ${cta.url}`);
+    // Step 4: Fill URL field - try multiple selectors with longer waits
+    await sleep(2000);
+    
+    // Take screenshot to debug CTA state
+    await page.screenshot({ path: `debug-cta-after-select-post${index + 1}.png` });
+    
+    const urlSelectors = [
+      'input[aria-label*="link" i]',
+      'input[aria-label*="URL" i]',
+      'input[placeholder*="link" i]',
+      'input[placeholder*="URL" i]',
+      'input[aria-label*="Link" i]',
+      'input[aria-label*="url" i]',
+      'input[type="url"]',
+      'input[type="text"][aria-label]'
+    ];
+    
+    let urlFilled = false;
+    for (const selector of urlSelectors) {
+      try {
+        const urlInput = page.locator(selector).first();
+        if (await urlInput.count() > 0 && await urlInput.isVisible()) {
+          await urlInput.click({ force: true });
+          await urlInput.fill('');
+          await urlInput.type(cta.url, { delay: 30 });
+          urlFilled = true;
+          log(`  ✓ URL CTA: ${cta.url}`);
+          break;
+        }
+      } catch (e) {
+        // Skip this selector
+      }
     }
+    
+    if (!urlFilled) {
+      // Try to find any visible input that might be the URL field
+      const allInputs = page.locator('input:visible');
+      const count = await allInputs.count();
+      log(`  ⚠ Campo de URL não encontrado (${count} inputs visíveis)`);
+      for (let i = 0; i < count; i++) {
+        const input = allInputs.nth(i);
+        const type = await input.getAttribute('type') || '';
+        const ariaLabel = await input.getAttribute('aria-label') || '';
+        const placeholder = await input.getAttribute('placeholder') || '';
+        log(`    - input[${i}]: type="${type}" aria-label="${ariaLabel}" placeholder="${placeholder}"`);
+      }
+    }
+    
+    await sleep(500);
   } else {
     log('  ⚠ Botão CTA não encontrado');
   }

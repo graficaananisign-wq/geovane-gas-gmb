@@ -7,6 +7,7 @@ const DIR = __dirname;
 const PROFILE_DIR = path.join(DIR, 'gmb-profile');
 const LOG_FILE = path.join(DIR, 'posting-log.json');
 const GMB_URL = 'https://www.google.com/local/business/10114823537177422096/promote/updates/add';
+const IMAGES_DIR = path.join(DIR, 'posts-finais');
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 5000;
@@ -16,11 +17,11 @@ const POST_TIMEOUT_MS = 20000;
 const SCHEDULE = JSON.parse(fs.readFileSync(path.join(DIR, 'schedule.json'), 'utf8'));
 
 const POST_FILES = [
-  'post01-botij-o-de-g-s.png','post02-g-s-butano-13kg.png','post03-acabou-o-g-s.png',
-  'post04-dep-sito-de-g-s.png','post05-entrega-de-g-s.png','post06-g-s-de-cozinha.png',
-  'post07-promo-o-de-g-s.png','post08-g-s-parag-s.png','post09-disk-g-s.png',
-  'post10-g-s-sem-sair-de-casa.png','post11-botij-o-de-g-s.png','post12-g-s-24-horas.png',
-  'post13-g-s-butano.png','post14-entrega-express.png','post15-geovane-g-s.png'
+  'post01-final.png','post02-final.png','post03-final.png',
+  'post04-final.png','post05-final.png','post06-final.png',
+  'post07-final.png','post08-final.png','post09-final.png',
+  'post10-final.png','post11-final.png','post12-final.png',
+  'post13-final.png','post14-final.png','post15-final.png'
 ];
 
 const COPIES = [
@@ -70,7 +71,7 @@ function savePostLog(entry) {
 }
 
 function validatePngExists(index) {
-  const filePath = path.join(DIR, POST_FILES[index]);
+  const filePath = path.join(IMAGES_DIR, POST_FILES[index]);
   if (!fs.existsSync(filePath)) {
     log(`  ✗ PNG não encontrado: ${POST_FILES[index]}`);
     return false;
@@ -422,7 +423,7 @@ async function postSingle(page, index) {
   const s = SCHEDULE[index];
   const [d, m, y] = s.day.split('/');
   const cta = CTAS[s.cta];
-  const imgPath = path.join(DIR, POST_FILES[index]);
+  const imgPath = path.join(IMAGES_DIR, POST_FILES[index]);
   const copy = COPIES[index];
 
   log(`\n--- Post ${index + 1}/15: ${d}/${m} ${s.time} [${s.cta}] ---`);
