@@ -29,77 +29,77 @@ const POST_PROMPTS = [
   {
     id: 1,
     filename: 'post01-gas-entrega.png',
-    prompt: 'Professional promotional image of a botijão de gás butano 13kg, blue gas cylinder delivery service, blue flame of a gas stove burner, clean modern kitchen background, warm lighting, Brazilian style, high quality commercial photography, vibrant colors, no text'
+    prompt: 'Professional promotional photograph of a blue botijão de gás butano 13kg gas cylinder, dramatic studio lighting with warm golden hour backlight, clean modern kitchen with marble countertop background, shallow depth of field, commercial product photography, vibrant saturated colors, lens flare accent, high-end advertising style, 8k quality, no text no watermark'
   },
   {
     id: 2,
     filename: 'post02-gas-butano.png',
-    prompt: 'Professional image of a botijão de gás butano 13kg, blue gas cylinder in a clean kitchen setting, warm lighting, commercial product photography style, Brazilian home environment, no text'
+    prompt: 'Premium product shot of a blue botijão de gás butano 13kg, soft box lighting with rim light, minimalist kitchen setting with white cabinets, professional color grading with teal and orange tones, commercial photography, bokeh background, sharp focus on cylinder, luxury brand feel, 8k resolution, no text no watermark'
   },
   {
     id: 3,
     filename: 'post03-entrega-rapida.png',
-    prompt: 'Fast delivery of botijão de gás, person carrying a blue gas cylinder to a residential house, sunset lighting, professional delivery service, Brazilian urban neighborhood, warm tones, no text'
+    prompt: 'Dynamic action shot of delivery person carrying blue botijão de gás to residential house, golden hour sunset lighting with long shadows, motion blur effect on background, Brazilian urban neighborhood, warm orange and blue color contrast, professional street photography style, cinematic composition, 8k quality, no text no watermark'
   },
   {
     id: 4,
     filename: 'post04-deposito-gas.png',
-    prompt: 'Gas distribution warehouse with botijão de gás, rows of blue gas cylinders organized neatly, professional storage facility, industrial lighting, clean and organized, Brazilian business, no text'
+    prompt: 'Industrial warehouse interior with rows of blue botijão de gás cylinders, dramatic overhead lighting creating depth, leading lines composition, clean organized storage facility, cool blue and warm orange lighting contrast, professional architectural photography, symmetrical framing, 8k resolution, no text no watermark'
   },
   {
     id: 5,
     filename: 'post05-domingo-gas.png',
-    prompt: 'Happy family cooking with botijão de gás, bright kitchen with gas stove flame visible, warm home atmosphere, weekend family gathering, Brazilian style kitchen, warm lighting, no text'
+    prompt: 'Happy Brazilian family gathered around kitchen table with blue botijão de gás visible, warm ambient lighting, steam rising from cooking, candid lifestyle photography, shallow depth of field, warm golden tones, authentic home atmosphere, editorial style, 8k quality, no text no watermark'
   },
   {
     id: 6,
     filename: 'post06-preco-justo.png',
-    prompt: 'Value and affordability concept for botijão de gás, happy customer receiving gas cylinder delivery, thumbs up gesture, bright sunny day, Brazilian residential area, friendly service, no text'
+    prompt: 'Smiling customer giving thumbs up next to blue botijão de gás delivery, bright sunny day with natural lighting, Brazilian residential street background, authentic candid moment, warm color grading, professional lifestyle photography, genuine emotion, 8k resolution, no text no watermark'
   },
   {
     id: 7,
     filename: 'post07-whatsapp.png',
-    prompt: 'Order botijão de gás via WhatsApp, modern smartphone showing a chat conversation, cozy kitchen background with gas stove, easy ordering concept, warm lighting, Brazilian style, no text'
+    prompt: 'Close-up of modern smartphone showing chat interface, blue botijão de gás softly blurred in background kitchen, shallow depth of field, warm ambient lighting, lifestyle product photography, clean composition, bokeh effect, tech-meets-home concept, 8k quality, no text no watermark'
   },
   {
     id: 8,
     filename: 'post08-gas-cozinha.png',
-    prompt: 'Beautiful modern kitchen with botijão de gás, blue gas flame on stove, clean countertop, warm ambient lighting, Brazilian home interior design, inviting atmosphere, no text'
+    prompt: 'Luxurious modern kitchen interior with blue gas flame on premium stove, blue botijão de gás integrated into design, warm under-cabinet lighting, marble surfaces, interior design photography, symmetrical composition, warm and cool color harmony, magazine quality, 8k resolution, no text no watermark'
   },
   {
     id: 9,
     filename: 'post09-avaliacao.png',
-    prompt: 'Five gold stars rating for botijão de gás delivery service, customer satisfaction, professional service quality, warm background with subtle glow, premium feel, no text'
+    prompt: 'Five glowing gold stars floating above blue botijão de gás, magical sparkle effects, premium dark background with subtle gradient, luxury product presentation, dramatic lighting, premium feel, award-winning concept, professional commercial photography, 8k quality, no text no watermark'
   },
   {
     id: 10,
     filename: 'post10-seguranca.png',
-    prompt: 'Safety concept for botijão de gás delivery, professional worker with safety equipment handling gas cylinder, careful and secure, industrial safety, Brazilian style, no text'
+    prompt: 'Professional worker in safety vest carefully handling blue botijão de gás, industrial safety equipment visible, confident and secure posture, cool blue lighting with warm accent, corporate safety photography, trustworthy atmosphere, 8k resolution, no text no watermark'
   },
   {
     id: 11,
     filename: 'post11-comercio.png',
-    prompt: 'Commercial restaurant kitchen with botijão de gás, professional chef environment, business gas supply, Brazilian restaurant setting, warm lighting, no text'
+    prompt: 'Professional commercial kitchen with multiple blue botijão de gás cylinders, stainless steel surfaces, restaurant environment, warm overhead lighting, industrial food photography, clean and organized workspace, business atmosphere, 8k quality, no text no watermark'
   },
   {
     id: 12,
     filename: 'post12-promocao.png',
-    prompt: 'Special offer on botijão de gás, promotional concept with gift box and blue ribbon, celebration atmosphere, bright colors, commercial advertising style, exciting deal, no text'
+    prompt: 'Blue botijão de gás with festive gift wrapping and golden ribbon, celebration confetti particles, vibrant promotional colors, exciting deal concept, dynamic composition, commercial advertising photography, eye-catching, 8k resolution, no text no watermark'
   },
   {
     id: 13,
     filename: 'post13-facilidade.png',
-    prompt: 'Convenience of botijão de gás delivery, person relaxing at home while delivery arrives, doorstep service, comfortable Brazilian home, stress-free, no text'
+    prompt: 'Person relaxing on couch while delivery arrives at doorstep with blue botijão de gás, split composition showing comfort and service, warm cozy interior, lifestyle photography, convenience concept, soft natural lighting, 8k quality, no text no watermark'
   },
   {
     id: 14,
     filename: 'post14-profissional.png',
-    prompt: 'Professional botijão de gás delivery person in uniform, confident pose, branded service vehicle, clean and trustworthy appearance, Brazilian worker, no text'
+    prompt: 'Professional delivery person in branded uniform standing next to blue botijão de gás, confident pose, service vehicle in background, corporate portrait photography, clean trustworthy appearance, professional lighting, 8k resolution, no text no watermark'
   },
   {
     id: 15,
     filename: 'post15-final-semana.png',
-    prompt: 'Weekend relaxation with botijão de gás, cozy kitchen with warm gas flame, peaceful home atmosphere, Saturday morning vibes, Brazilian home comfort, no text'
+    prompt: 'Cozy weekend morning kitchen scene with blue botijão de gás, warm golden sunlight streaming through window, peaceful home atmosphere, coffee cup nearby, lifestyle editorial photography, warm color grading, inviting mood, 8k quality, no text no watermark'
   }
 ];
 

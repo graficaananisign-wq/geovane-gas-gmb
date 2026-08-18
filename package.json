@@ -7,10 +7,12 @@
     "generate": "node generate-posts.js",
     "images": "node generate-images-pollinations.js",
     "images:range": "node generate-images-pollinations.js",
-    "render": "node postar-automatico.js",
+    "render": "node render-posts.js",
+    "render:range": "node render-posts.js",
     "post": "node postar-gmb.js",
     "post:range": "node postar-gmb.js",
     "post:headless": "HEADLESS=true node postar-gmb.js",
+    "post:auto": "node postar-automatico.js",
     "install:browsers": "npx playwright install chromium"
   },
   "keywords": [
@@ -24,6 +26,7 @@
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.4.2",
-    "playwright": "^1.61.1"
+    "playwright": "^1.61.1",
+    "puppeteer": "^25.8.0"
   }
 }

@@ -6,6 +6,7 @@ Sistema de automação de postagens no Google Business Profile para a **Geovane 
 
 - **15 templates de post** com textos otimizados e imagens PNG profissionais
 - **Geração de imagens com IA** via Pollinations.ai (gratuito)
+- **Sobrepõe textos SEO** e CTAs nas imagens automaticamente
 - **Postagem automática** no GMB via Playwright (browser automation)
 - **Agendamento** com data e hora específicas
 - **CTAs integrados** (Saiba mais, Comprar, Falar no WhatsApp, etc.)
@@ -74,12 +75,14 @@ npm run post:headless
 ```
 ├── generate-posts.js              # Gera HTML dos 15 posts
 ├── generate-images-pollinations.js # Gera imagens com IA (Pollinations)
-├── postar-automatico.js           # Renderiza HTML → PNG
+├── render-posts.js                # Sobrepõe textos SEO e CTAs nas imagens
 ├── postar-gmb.js                  # Posta no GMB automaticamente
+├── postar-automatico.js           # Pipeline completo (render + post)
 ├── schedule.json                  # Cronograma de postagens
 ├── copys-posts.txt                # Textos dos posts
 ├── posting-log.json               # Log de postagens (gerado automaticamente)
 ├── images-pollinations/           # Imagens geradas por IA
+├── posts-finais/                  # Imagens com texto SEO sobrepsto
 ├── .env.example                   # Exemplo de configuração
 └── post*.html / post*.png         # Posts gerados
 ```
@@ -109,7 +112,7 @@ Variáveis disponíveis:
 
 1. **Gerar posts** — `npm run generate` cria 15 HTMLs + `schedule.json`
 2. **Gerar imagens IA** — `npm run images` cria imagens via Pollinations.ai
-3. **Renderizar** — `npm run render` converte HTMLs em PNGs (opcional se usar imagens IA)
+3. **Renderizar com texto** — `npm run render` sobrepõe títulos SEO, CTAs e textos nas imagens
 4. **Login** — Na primeira execução, faça login no Google na janela aberta
 5. **Postar** — O sistema navega no GMB, preenche texto, imagem, CTA e agenda
 
